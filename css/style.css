@@ -1,0 +1,84 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: rgb(59, 19, 90);
+	font-family: 'Shantell Sans', cursive;
+	/*background-image: url(/img/myBackground.png);*/
+}
+
+header {
+	padding: 30px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.header__btn-prev {
+	height: 70px;
+	width: 70px;
+	font-size: 50px;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: white;
+	border: solid 2px white;
+	border-radius: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.5s;
+}
+
+.header__btn-prev:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+	color: rgb(59, 19, 90);
+	font-size: 60px;
+	transition: 0.2s;
+
+}
+
+.header__title {
+	flex-grow: 1;
+	text-align: center;
+	margin-left: 80px;
+	color: white;
+	font-size: 50px;
+	padding-top: 5px;
+}
+
+.game-section__container {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.game-btn {
+	color: white;
+	background-color: rgba(255, 255, 255, 0.3);
+	border: solid 2px white;
+	border-radius: 10px;
+	width: 300px;
+	height: 50px;
+	margin: 20px auto;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.7s;
+}
+
+.game-btn:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+	color: rgb(59, 19, 90);
+	font-size: 32px;
+	transition: 0.2s;
+}
+
+.game-menu__title {
+	color: white;
+	font-size: 35px;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
