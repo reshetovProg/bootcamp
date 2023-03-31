@@ -25,7 +25,22 @@ export const startGame = (lvl) => {
 		gameField.append(createGameCard('X', card))
 	});
 
+
 	gameSection.append(gameField);
 
 	console.log(shuffleCardsArray);
+
+	const cards = document.querySelectorAll('.game-card');
+	cards.forEach((card, index) => {
+		card.addEventListener('click', () => {
+			if (clickable == true && !card.classList.contains('successfully')) {
+				card.classList.add('flip');
+				const t = card.getElementsByTagName('i')[1].className;
+				card.classList.add(t)
+
+			}
+		});
+	});
+
+
 }

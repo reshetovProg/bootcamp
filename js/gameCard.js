@@ -4,8 +4,8 @@ export const createGameCard = (defaultImage, flippedImage)=>{
 	const defaultSide = document.createElement('i');
 	const flippedSide = document.createElement('i');
 
-	defaultSide.classList.add('defaultSide');
-	flippedSide.classList.add('flippedSide');
+	defaultSide.classList.add(defaultImage);
+	flippedSide.classList.add(flippedImage);
 
 	card.append(defaultSide, flippedSide);
 	return card;
