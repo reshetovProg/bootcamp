@@ -2,11 +2,21 @@ import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
 
 import { createGameCard } from "./gameCard.js";
 
+import { createGameMenu } from "./gameMenu.js";
 
 export const startGame = (lvl) => {
 	let firstCard = null;
 	let secondCard = null;
 	let clickable = true;
+
+	const header = document.querySelector('.header');
+	const score = document.createElement('div');
+	score.classList.add('score');
+
+	const fc = header.firstChild;
+	score.textContent = "0";
+	header.insertBefore(score, fc);
+
 
 	const gameSection = document.querySelector('.game-section__container');
 
@@ -38,9 +48,52 @@ export const startGame = (lvl) => {
 				const t = card.getElementsByTagName('i')[1].className;
 				card.classList.add(t)
 
+				if (firstCard == null) {
+					firstCard = index;
+				}
+				else {
+					if (index != firstCard) {
+						secondCard = index;
+						clickable = false;
+					}
+				}
+
+				if (firstCard != null && secondCard != null && firstCard != secondCard) {
+					if (cards[firstCard].lastElementChild.className ===
+						cards[secondCard].lastElementChild.className) {
+						setTimeout(() => {
+							cards[firstCard].classList.add('successfully');
+							cards[secondCard].classList.add('successfully');
+							firstCard = null;
+							secondCard = null;
+							clickable = true;
+						}, 500);
+					}
+					else {
+						setTimeout(() => {
+							let f1 = cards[firstCard].lastElementChild.className;
+							let f2 = cards[secondCard].lastElementChild.className;
+							cards[firstCard].classList.remove('flip');
+							cards[secondCard].classList.remove('flip');
+							cards[firstCard].classList.remove(f1);
+							cards[secondCard].classList.remove(f2);
+							firstCard = null;
+							secondCard = null;
+							clickable = true;
+						}, 500);
+					}
+				}
+
 			}
+
+
 		});
 	});
 
+
+	const btnPrev = document.querySelector('.header__btn-prev');
+	btnPrev.addEventListener('click', () => {
+		createGameMenu();
+	})
 
 }

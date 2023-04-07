@@ -48,6 +48,12 @@ header {
 	padding-top: 5px;
 }
 
+.score {
+	color: white;
+	font-size: 50px;
+	padding-top: 5px;
+}
+
 .game-section__container {
 	display: flex;
 	flex-direction: column;
@@ -100,6 +106,8 @@ header {
 	background-size: cover;
 	margin: 15px;
 	border-radius: 20px;
+	transform: perspective(100px) rotateY(0deg);
+	transition: 0.5s
 }
 
 .type1 {
