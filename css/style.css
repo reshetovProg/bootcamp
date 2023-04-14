@@ -4,10 +4,12 @@
 }
 
 body {
-	background-color: rgb(59, 19, 90);
+	background-color: #1C7A7A;
 	font-family: 'Shantell Sans', cursive;
 	background-image: url(/img/background2.jpeg);
 	background-size: cover;
+	background-repeat: no-repeat;
+	/* background-size: cover; */
 
 }
 
@@ -25,7 +27,7 @@ header {
 	color: white;
 	border: solid 2px white;
 	border-radius: 70px;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	transition: 0.5s;
@@ -49,8 +51,17 @@ header {
 }
 
 .score {
+	display: block;
 	color: white;
 	font-size: 50px;
+	padding-top: 5px;
+}
+
+.best_score {
+	margin-top: 30px;
+	text-align: center;
+	color: white;
+	font-size: 30px;
 	padding-top: 5px;
 }
 

@@ -1,6 +1,25 @@
 import { startGame } from "./startGame.js"
 
 export const createGameMenu = () => {
+	const btnPrev = document.querySelector('.header__btn-prev');
+	btnPrev.style.display = "none";
+
+
+	const score = document.querySelector('.score');
+	let s1 = Number(score.textContent);
+	score.style.display = "none";
+
+	const bestScore = document.querySelector('.best_score');
+	if (bestScore.textContent == "") {
+		bestScore.textContent = "1000000";
+	}
+	else {
+		if (Number(bestScore.textContent) > s1) {
+			bestScore.textContent = s1;
+		}
+	}
+
+
 	const title = document.createElement('h2');
 	title.classList.add('game-menu__title');
 	const gameSection = document.querySelector('.game-section__container');

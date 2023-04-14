@@ -8,14 +8,13 @@ export const startGame = (lvl) => {
 	let firstCard = null;
 	let secondCard = null;
 	let clickable = true;
+	let counter = 0;
 
-	const header = document.querySelector('.header');
-	const score = document.createElement('div');
-	score.classList.add('score');
+	const score = document.querySelector('.score');
+	score.style.display = "block";
+	score.textContent = counter;
 
-	const fc = header.firstChild;
-	score.textContent = "0";
-	header.insertBefore(score, fc);
+
 
 
 	const gameSection = document.querySelector('.game-section__container');
@@ -43,6 +42,10 @@ export const startGame = (lvl) => {
 	const cards = document.querySelectorAll('.game-card');
 	cards.forEach((card, index) => {
 		card.addEventListener('click', () => {
+
+			counter++;
+			score.textContent = counter;
+
 			if (clickable == true && !card.classList.contains('successfully')) {
 				card.classList.add('flip');
 				const t = card.getElementsByTagName('i')[1].className;
@@ -92,6 +95,7 @@ export const startGame = (lvl) => {
 
 
 	const btnPrev = document.querySelector('.header__btn-prev');
+	btnPrev.style.display = "flex";
 	btnPrev.addEventListener('click', () => {
 		createGameMenu();
 	})
