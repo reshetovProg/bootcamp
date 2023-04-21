@@ -4,6 +4,19 @@ import { createGameCard } from "./gameCard.js";
 
 import { createGameMenu } from "./gameMenu.js";
 
+function gameWin(cards){
+	for (const el of cards) {
+		if (!el.classList.contains('successfully')){
+			return false;
+		}
+	}
+	return true;
+
+}
+
+
+
+
 export const startGame = (lvl) => {
 	let firstCard = null;
 	let secondCard = null;
@@ -70,6 +83,13 @@ export const startGame = (lvl) => {
 							firstCard = null;
 							secondCard = null;
 							clickable = true;
+							if (gameWin(cards)) {
+								setTimeout(() => {
+									console.log("YOU WIN!!!");
+									createGameMenu(true);
+								}, 1000);
+							}
+							
 						}, 500);
 					}
 					else {
@@ -97,7 +117,7 @@ export const startGame = (lvl) => {
 	const btnPrev = document.querySelector('.header__btn-prev');
 	btnPrev.style.display = "flex";
 	btnPrev.addEventListener('click', () => {
-		createGameMenu();
+		createGameMenu(false);
 	})
 
 }

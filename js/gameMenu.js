@@ -1,21 +1,25 @@
 import { startGame } from "./startGame.js"
 
-export const createGameMenu = () => {
+
+export const createGameMenu = (flag) => {
 	const btnPrev = document.querySelector('.header__btn-prev');
 	btnPrev.style.display = "none";
 
-
 	const score = document.querySelector('.score');
+	console.log(score.textContent);
 	let s1 = Number(score.textContent);
 	score.style.display = "none";
 
 	const bestScore = document.querySelector('.best_score');
+	console.log(bestScore.textContent);
 	if (bestScore.textContent == "") {
-		bestScore.textContent = "1000000";
+		bestScore.style.visibility = "hidden";
+		bestScore.textContent = "РЕКОРД: 1000000";
 	}
 	else {
-		if (Number(bestScore.textContent) > s1) {
-			bestScore.textContent = s1;
+		if (Number(bestScore.textContent.slice(8, bestScore.textContent.length)) > s1 && flag) {
+			bestScore.textContent = `РЕКОРД: ${s1}`;
+			bestScore.style.visibility = "visible";
 		}
 	}
 
